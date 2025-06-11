@@ -1,5 +1,5 @@
 {
-  "name": "liquid-glass-vue",
+  "name": "@zaosoula/liquid-glass-vue",
   "type": "module",
   "version": "0.0.2",
   "description": "",
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zaosoula/liquid-glass-vue.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "bugs": "https://github.com/zaosoula/liquid-glass-vue/issues",
   "keywords": [],
@@ -49,7 +52,7 @@
     "dev:preview": "vite preview dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepublishOnly": "yarn build"
+    "prepack": "yarn build"
   },
   "peerDependencies": {
     "vue": "^3.2.0"

@@ -34,14 +34,14 @@ Card Example              |  Button Example
 ### Installation
 
 ```bash
-npm install liquid-glass-vue
+npm install @zaosoula/liquid-glass-vue
 ```
 
 ### Basic Usage
 
 ```vue
 <script lang="ts" setup>
-  import LiquidGlass from 'liquid-glass-vue'
+  import LiquidGlass from '@zaosoula/liquid-glass-vue'
 </script>
 
 <template>
@@ -109,5 +109,5 @@ When you want the glass effect to respond to mouse movement over a larger area (
 | `padding` | `string` | - | CSS padding value |
 | `style` | `React.CSSProperties` | - | Additional inline styles |
 | `overLight` | `boolean` | `false` | Whether the glass is over a light background |
-| `onClick` | `() => void` | - | Click handler |
+| `@click` | `() => void` | - | Click handler |
 | `mouseContainer` | `React.RefObject<HTMLElement \| null> \| null` | `null` | Container element to track mouse movement on (defaults to the glass component itself) |

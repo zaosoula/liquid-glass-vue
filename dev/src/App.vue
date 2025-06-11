@@ -35,6 +35,10 @@ const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
 }
 
 const scrollingOverBrightSection = computed(() => scroll.value > 230 && scroll.value < 500)
+
+const handleLogout = () => {
+  alert("Logged out!")
+}
 </script>
 
 <template>
@@ -109,7 +113,7 @@ const scrollingOverBrightSection = computed(() => scroll.value > 230 && scroll.v
         :blur-amount="logoutBlurAmount" :saturation="logoutSaturation" :aberration-intensity="logoutAberrationIntensity"
         :elasticity="logoutElasticity" :corner-radius="logoutCornerRadius" :mouse-container="containerRef"
         :over-light="scrollingOverBrightSection || logoutOverLight" :mode="logoutMode" padding="8px 16px"
-        :style="{ position: 'fixed', top: '20%', left: '40%' }" @click="() => alert('Logged out!')">
+        :style="{ position: 'fixed', top: '20%', left: '40%' }" @click="handleLogout">
         <h3 class="text-lg font-medium flex items-center gap-2">
           Log Out
           <LogOutIcon class-name="w-5 h-5" />

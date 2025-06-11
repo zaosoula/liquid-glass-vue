@@ -2054,6 +2054,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zaosoula/liquid-glass-vue@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@zaosoula/liquid-glass-vue@workspace:."
+  dependencies:
+    "@antfu/eslint-config": "npm:^3.7.1"
+    "@tailwindcss/vite": "npm:^4.1.8"
+    "@types/node": "npm:^22.5.5"
+    "@vitejs/plugin-vue": "npm:^5.1.4"
+    "@vue/tsconfig": "npm:^0.5.1"
+    eslint: "npm:^9.11.0"
+    lucide-vue-next: "npm:^0.514.0"
+    mkdist: "npm:^1.5.9"
+    tailwindcss: "npm:^4.1.8"
+    typescript: "npm:^5.6.2"
+    unbuild: "npm:2.0.0"
+    vite: "npm:^5.4.7"
+    vue: "npm:^3.5.7"
+  peerDependencies:
+    vue: ^3.2.0
+  languageName: unknown
+  linkType: soft
+
 "abbrev@npm:^3.0.0":
   version: 3.0.1
   resolution: "abbrev@npm:3.0.1"
@@ -4339,28 +4361,6 @@ __metadata:
   checksum: 10c0/3da6ee62d4cd9f03f5dc90b4df2540fb85b352081bee77fe4bbcd12c9000ead7f35e0a38b8d09a9bb99b13223446dd8689ff3c4959807620726d788701a83d2d
   languageName: node
   linkType: hard
-
-"liquid-glass-vue@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "liquid-glass-vue@workspace:."
-  dependencies:
-    "@antfu/eslint-config": "npm:^3.7.1"
-    "@tailwindcss/vite": "npm:^4.1.8"
-    "@types/node": "npm:^22.5.5"
-    "@vitejs/plugin-vue": "npm:^5.1.4"
-    "@vue/tsconfig": "npm:^0.5.1"
-    eslint: "npm:^9.11.0"
-    lucide-vue-next: "npm:^0.514.0"
-    mkdist: "npm:^1.5.9"
-    tailwindcss: "npm:^4.1.8"
-    typescript: "npm:^5.6.2"
-    unbuild: "npm:2.0.0"
-    vite: "npm:^5.4.7"
-    vue: "npm:^3.5.7"
-  peerDependencies:
-    vue: ^3.2.0
-  languageName: unknown
-  linkType: soft
 
 "local-pkg@npm:^1.0.0":
   version: 1.1.1
