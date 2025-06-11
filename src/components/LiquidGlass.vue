@@ -15,7 +15,8 @@ interface LiquidGlassProps {
   class?: string
   padding?: string
   style?: React.CSSProperties
-  overLight?: boolean
+  overLight?: boolean,
+  mode?: "standard" | "polar"
 }
 
 const props = withDefaults(defineProps<LiquidGlassProps>(), {
@@ -30,6 +31,7 @@ const props = withDefaults(defineProps<LiquidGlassProps>(), {
   padding: '24px 32px',
   overLight: false,
   style: {},
+  mode: "standard"
 })
 
 const emit = defineEmits<{
@@ -239,7 +241,7 @@ const positionStyles = computed(() => ({
     ref="glassRef" :class="props.class" :style="baseStyle" :corner-radius="cornerRadius"
     :displacement-scale="overLight ? displacementScale * 0.5 : displacementScale" :blur-amount="blurAmount"
     :saturation="saturation" :aberration-intensity="aberrationIntensity" :glass-size="glassSize" :padding="padding"
-    :mouse-offset="mouseOffset" :active="isActive" :over-light="overLight" @mouse-enter="() => setIsHovered(true)"
+    :mouse-offset="mouseOffset" :active="isActive" :over-light="overLight" :mode="mode" @mouse-enter="() => setIsHovered(true)"
     @mouse-leave="() => setIsHovered(false)" @mouse-down="() => setIsActive(true)" @mouse-up="() => setIsActive(false)"
     @click="emit('click', $event)"
   >

@@ -1,7 +1,7 @@
 <script setup lang="tsx">
-import { displacementMap } from './utils'
+import { displacementMap, polarDisplacementMap } from './utils'
 
-const props = defineProps<{ id: string, displacementScale: number, aberrationIntensity: number, width: number, height: number }>()
+const props = defineProps<{ id: string, displacementScale: number, aberrationIntensity: number, width: number, height: number, mode: "standard" | "polar" }>()
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const props = defineProps<{ id: string, displacementScale: number, aberrationInt
       </radialGradient>
       <filter :id="id" x="-35%" y="-35%" width="170%" height="170%" colorInterpolationFilters="sRGB">
         <feImage
-          id="feimage" x="0" y="0" width="100%" height="100%" result="DISPLACEMENT_MAP" :href="displacementMap"
+          id="feimage" x="0" y="0" width="100%" height="100%" result="DISPLACEMENT_MAP" :href="mode === 'standard' ? displacementMap : polarDisplacementMap"
           preserveAspectRatio="xMidYMid slice"
         />
 

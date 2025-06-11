@@ -15,6 +15,7 @@ const props = withDefaults(defineProps<{
   cornerRadius?: number
   padding?: string
   glassSize?: { width: number, height: number }
+  mode?: "standard" | "polar"
 }>(), {
   class: '',
   displacementScale: 25,
@@ -26,6 +27,7 @@ const props = withDefaults(defineProps<{
   cornerRadius: 999,
   padding: '24px 32px',
   glassSize: () => ({ width: 270, height: 69 }),
+  mode: "standard",
 })
 
 const emit = defineEmits<{
@@ -40,15 +42,17 @@ const $el = useTemplateRef('dom')
 defineExpose({ $el })
 
 const filterId = useId()
+const isFirefox = computed(() => navigator.userAgent.toLowerCase().includes("firefox"));
 
 const backdropStyle = computed(() => ({
-  filter: `url(#${filterId})`,
+  filter: isFirefox.value ? null : `url(#${filterId})`,
   backdropFilter: `blur(${(props.overLight ? 20 : 4) + props.blurAmount * 32}px) saturate(${props.saturation}%)`,
 }))
 
 const hasClickEventListener = computed(
   () => !!getCurrentInstance()?.vnode.props?.onClick,
 )
+
 </script>
 
 <template>
@@ -58,7 +62,7 @@ const hasClickEventListener = computed(
   >
     <GlassFilter
       :id="filterId" :displacement-scale="displacementScale" :aberration-intensity="aberrationIntensity"
-      :width="glassSize.width" :height="glassSize.height"
+      :width="glassSize.width" :height="glassSize.height" :mode="mode"
     />
 
     <div

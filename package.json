@@ -1,7 +1,7 @@
 {
   "name": "liquid-glass-vue",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "author": "Zao Soua <contact@zaosoula.fr>",
   "license": "MIT",
@@ -56,18 +56,18 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.1",
+    "@tailwindcss/vite": "^4.1.8",
     "@types/node": "^22.5.5",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^9.11.0",
+    "lucide-vue-next": "^0.514.0",
     "mkdist": "^1.5.9",
+    "tailwindcss": "^4.1.8",
     "typescript": "^5.6.2",
     "unbuild": "2.0.0",
     "vite": "^5.4.7",
-    "vue": "^3.5.7",
-    "@tailwindcss/vite": "^4.1.8",
-    "lucide-vue-next": "^0.514.0",
-    "tailwindcss": "^4.1.8"
+    "vue": "^3.5.7"
   },
   "packageManager": "yarn@4.9.2"
 }

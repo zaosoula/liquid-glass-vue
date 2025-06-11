@@ -18,6 +18,7 @@ Card Example              |  Button Example
 ## Features
 
 - Proper edgy bending and refraction
+- Multiple refraction modes
 - Configurable frosty level
 - Supports arbitrary child elements
 - Configurable paddings
@@ -26,7 +27,7 @@ Card Example              |  Button Example
 - Configurable chromatic aberration
 - Configurable elasticity, to mimic Apple's "liquid" feel
 
-**⚠️ NOTE:** Safari only partially supports the effect (no displacement) and Firefox does not support it at all.
+> **⚠️ NOTE:** Safari and Firefox only partially support the effect (displacement will not be visible)
 
 ## Usage
 
