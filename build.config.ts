@@ -8,4 +8,5 @@ export default defineBuildConfig({
   ],
   declaration: true,
   clean: true,
+  sourcemap: true
 })
