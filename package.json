@@ -1,8 +1,8 @@
 {
   "name": "@zaosoula/liquid-glass-vue",
   "type": "module",
-  "version": "1.1.1",
-  "description": "",
+  "version": "1.1.2",
+  "description": "Apple's Liquid Glass effect for Vue. Based on liquid-glass-react by @rdev",
   "author": "Zao Soua <contact@zaosoula.fr>",
   "license": "MIT",
   "homepage": "https://github.com/zaosoula/liquid-glass-vue#readme",
@@ -14,7 +14,7 @@
     "access": "public"
   },
   "bugs": "https://github.com/zaosoula/liquid-glass-vue/issues",
-  "keywords": [],
+  "keywords": ["vue", "component", "library", "typescript", "apple", "liquid-glass"],
   "sideEffects": false,
   "exports": {
     ".": {
