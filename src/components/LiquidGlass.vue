@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, getCurrentInstance, onBeforeUnmount, onMounted, onWatcherCleanup, ref, watch } from 'vue'
+import { computed, getCurrentInstance, onBeforeUnmount, onMounted, onWatcherCleanup, ref, watch, type Ref } from 'vue'
 import GlassContainer from './GlassContainer.vue'
 
 interface LiquidGlassProps {
@@ -11,12 +11,12 @@ interface LiquidGlassProps {
   cornerRadius?: number
   globalMousePos?: { x: number, y: number }
   mouseOffset?: { x: number, y: number }
-  mouseContainer?: React.RefObject<HTMLElement | null> | null
+  mouseContainer?: Ref<HTMLElement | null> | null
   class?: string
   padding?: string
-  style?: React.CSSProperties
-  overLight?: boolean,
-  mode?: "standard" | "polar"
+  style?: Record<string, any>
+  overLight?: boolean
+  mode?: 'standard' | 'polar' | 'prominent' | 'shader'
 }
 
 const props = withDefaults(defineProps<LiquidGlassProps>(), {
@@ -30,8 +30,8 @@ const props = withDefaults(defineProps<LiquidGlassProps>(), {
   class: '',
   padding: '24px 32px',
   overLight: false,
-  style: {},
-  mode: "standard"
+  style: () => {},
+  mode: 'standard',
 })
 
 const emit = defineEmits<{

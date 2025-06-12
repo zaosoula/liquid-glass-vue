@@ -1,6 +1,7 @@
 <script setup lang="tsx">
-import { computed, getCurrentInstance, onBeforeUnmount, onMounted, ref, useId, useTemplateRef, watch } from 'vue'
+import { computed, getCurrentInstance, ref, useId, useTemplateRef, watch } from 'vue'
 import GlassFilter from './GlassFilter.vue'
+import { generateShaderDisplacementMap } from './utils'
 
 const props = withDefaults(defineProps<{
   class?: string
@@ -15,7 +16,7 @@ const props = withDefaults(defineProps<{
   cornerRadius?: number
   padding?: string
   glassSize?: { width: number, height: number }
-  mode?: "standard" | "polar"
+  mode?: 'standard' | 'polar' | 'prominent' | 'shader'
 }>(), {
   class: '',
   displacementScale: 25,
@@ -27,7 +28,7 @@ const props = withDefaults(defineProps<{
   cornerRadius: 999,
   padding: '24px 32px',
   glassSize: () => ({ width: 270, height: 69 }),
-  mode: "standard",
+  mode: 'standard',
 })
 
 const emit = defineEmits<{
@@ -42,7 +43,8 @@ const $el = useTemplateRef('dom')
 defineExpose({ $el })
 
 const filterId = useId()
-const isFirefox = computed(() => navigator.userAgent.toLowerCase().includes("firefox"));
+const shaderMapUrl = ref<string>('')
+const isFirefox = computed(() => navigator.userAgent.toLowerCase().includes('firefox'))
 
 const backdropStyle = computed(() => ({
   filter: isFirefox.value ? null : `url(#${filterId})`,
@@ -53,6 +55,14 @@ const hasClickEventListener = computed(
   () => !!getCurrentInstance()?.vnode.props?.onClick,
 )
 
+watch([() => props.mode, () => props.glassSize, () => props.glassSize?.height, () => props.glassSize.width], () => {
+  if (props.mode === 'shader') {
+    const url = generateShaderDisplacementMap(props.glassSize.width, props.glassSize.height)
+    shaderMapUrl.value = (url)
+  }
+}, {
+  immediate: true,
+})
 </script>
 
 <template>
@@ -62,7 +72,7 @@ const hasClickEventListener = computed(
   >
     <GlassFilter
       :id="filterId" :displacement-scale="displacementScale" :aberration-intensity="aberrationIntensity"
-      :width="glassSize.width" :height="glassSize.height" :mode="mode"
+      :width="glassSize.width" :height="glassSize.height" :mode="mode" :shader-map-url="shaderMapUrl"
     />
 
     <div

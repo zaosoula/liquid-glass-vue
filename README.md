@@ -107,7 +107,10 @@ When you want the glass effect to respond to mouse movement over a larger area (
 | `cornerRadius` | `number` | `999` | Border radius in pixels |
 | `class` | `string` | `""` | Additional CSS classes |
 | `padding` | `string` | - | CSS padding value |
-| `style` | `React.CSSProperties` | - | Additional inline styles |
+| `style` | `Record<string, any>` | - | Additional inline styles |
 | `overLight` | `boolean` | `false` | Whether the glass is over a light background |
 | `@click` | `() => void` | - | Click handler |
-| `mouseContainer` | `React.RefObject<HTMLElement \| null> \| null` | `null` | Container element to track mouse movement on (defaults to the glass component itself) |
+| `mouseContainer` | `Vue.Ref<HTMLElement \| null> \| null` | `null` | Container element to track mouse movement on (defaults to the glass component itself) |
+| `mode` | `"standard" \| "polar" \| "prominent" \| "shader"` | `"standard"` | Refraction mode for different visual effects. `shader` is the most accurate but not the most stable. |Add commentMore actions
+| `globalMousePos` | `{ x: number; y: number }` | - | Global mouse position coordinates for manual control |
+| `mouseOffset` | `{ x: number; y: number }` | - | Mouse position offset for fine-tuning positioning |

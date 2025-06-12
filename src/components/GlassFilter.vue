@@ -1,7 +1,7 @@
 <script setup lang="tsx">
-import { displacementMap, polarDisplacementMap } from './utils'
+import { getMap } from './utils'
 
-const props = defineProps<{ id: string, displacementScale: number, aberrationIntensity: number, width: number, height: number, mode: "standard" | "polar" }>()
+const props = defineProps<{ id: string, displacementScale: number, aberrationIntensity: number, width: number, height: number, mode: 'standard' | 'polar' | 'prominent' | 'shader', shaderMapUrl?: string }>()
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const props = defineProps<{ id: string, displacementScale: number, aberrationInt
       </radialGradient>
       <filter :id="id" x="-35%" y="-35%" width="170%" height="170%" colorInterpolationFilters="sRGB">
         <feImage
-          id="feimage" x="0" y="0" width="100%" height="100%" result="DISPLACEMENT_MAP" :href="mode === 'standard' ? displacementMap : polarDisplacementMap"
+          id="feimage" x="0" y="0" width="100%" height="100%" result="DISPLACEMENT_MAP" :href="getMap(mode, shaderMapUrl)"
           preserveAspectRatio="xMidYMid slice"
         />
 
@@ -34,8 +34,8 @@ const props = defineProps<{ id: string, displacementScale: number, aberrationInt
 
         <!-- {/* Red channel displacement with slight offset */} -->
         <feDisplacementMap
-          in="SourceGraphic" in2="DISPLACEMENT_MAP" :scale="displacementScale * -1" xChannelSelector="R"
-          yChannelSelector="B" result="RED_DISPLACED"
+          in="SourceGraphic" in2="DISPLACEMENT_MAP" :scale="displacementScale * (mode === 'shader' ? 1 : -1)"
+          xChannelSelector="R" yChannelSelector="B" result="RED_DISPLACED"
         />
         <feColorMatrix
           in="RED_DISPLACED" type="matrix" values="1 0 0 0 0
@@ -46,8 +46,7 @@ const props = defineProps<{ id: string, displacementScale: number, aberrationInt
 
         <!-- {/* Green channel displacement */} -->
         <feDisplacementMap
-          in="SourceGraphic" in2="DISPLACEMENT_MAP" :scale="displacementScale * (-1
-            - aberrationIntensity * 0.05)" xChannelSelector="R" yChannelSelector="B" result="GREEN_DISPLACED"
+          in="SourceGraphic" in2="DISPLACEMENT_MAP" :scale="displacementScale * ((mode === 'shader' ? 1 : -1) - aberrationIntensity * 0.05)" xChannelSelector="R" yChannelSelector="B" result="GREEN_DISPLACED"
         />
         <feColorMatrix
           in="GREEN_DISPLACED" type="matrix" values="0 0 0 0 0
@@ -58,8 +57,7 @@ const props = defineProps<{ id: string, displacementScale: number, aberrationInt
 
         <!-- {/* Blue channel displacement with slight offset */} -->
         <feDisplacementMap
-          in="SourceGraphic" in2="DISPLACEMENT_MAP" :scale="displacementScale * (-1
-            - aberrationIntensity * 0.1)" xChannelSelector="R" yChannelSelector="B" result="BLUE_DISPLACED"
+          in="SourceGraphic" in2="DISPLACEMENT_MAP" :scale="displacementScale * ((mode === 'shader' ? 1 : -1) - aberrationIntensity * 0.1)" xChannelSelector="R" yChannelSelector="B" result="BLUE_DISPLACED"
         />
         <feColorMatrix
           in="BLUE_DISPLACED" type="matrix" values="0 0 0 0 0
