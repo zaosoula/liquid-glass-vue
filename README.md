@@ -4,18 +4,15 @@ Apple's Liquid Glass effect for Vue. Forked from [liquid-glass-react](https://gi
 
 Card Example              |  Button Example
 :-------------------------:|:-------------------------:
-![](https://github.com/rdev/liquid-glass-react/raw/master/assets/card.png)  |  ![](https://github.com/rdev/liquid-glass-react/raw/master/assets/button.png)
+![](https://github.com/zaosoula/liquid-glass-vue/raw/master/assets/card.png)  |  ![](https://github.com/zaosoula/liquid-glass-vue/raw/master/assets/button.png)
 
-## Video
+## 🎬  Demo
 
-[See it in action](https://raw.githubusercontent.com/rdev/liquid-glass-react/refs/heads/master/assets/video.mov?token=GHSAT0AAAAAACPNNASADXWXU2ZZA2OCMJ3W2CIWMMA)
+[Click here](https://liquid-glass.maxrovensky.com) to see it in action!
 
-## Demo
+![project liquid gif](https://github.com/zaosoula/liquid-glass-vue/raw/master/assets/project-liquid.gif)
 
-[See it in action but touch it](https://liquid-glass.maxrovensky.com)
-
-
-## Features
+## ✨ Features
 
 - Proper edgy bending and refraction
 - Multiple refraction modes
@@ -29,7 +26,7 @@ Card Example              |  Button Example
 
 > **⚠️ NOTE:** Safari and Firefox only partially support the effect (displacement will not be visible)
 
-## Usage
+## 🚀 Usage
 
 ### Installation
 
